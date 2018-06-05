@@ -19,6 +19,11 @@ import cn.itcast.utils.Page;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
+	public static void main(String[] args) {
+		while(true){
+			System.out.println("ssss");
+		}
+	}
 	
 	@Autowired
 	private CustomerService customerService;
@@ -84,6 +89,12 @@ public class CustomerController {
 	@RequestMapping("/update")
 	public String update(Customer customer) throws Exception{
 		customerService.updateCustomerById(customer);
+		return "customer";
+	}
+	
+	@RequestMapping("/delete")
+	public String delete(Long id) throws Exception{
+		customerService.deleteCustomerById(id);
 		return "customer";
 	}
 }

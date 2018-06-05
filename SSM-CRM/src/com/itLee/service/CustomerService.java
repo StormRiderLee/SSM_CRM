@@ -17,4 +17,6 @@ public interface CustomerService {
 	public Customer findCustomerById(Long id);
 	
 	public void updateCustomerById(Customer customer);
+	
+	public void deleteCustomerById(Long id);
 }
