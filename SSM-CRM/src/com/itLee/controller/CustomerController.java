@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itLee.pojo.BaseDict;
 import com.itLee.pojo.Customer;
@@ -70,6 +71,19 @@ public class CustomerController {
 		model.addAttribute("custSource", vo.getCustSource());
 		model.addAttribute("custIndustry", vo.getCustIndustry());
 		model.addAttribute("custLevel", vo.getCustLevel());
+		return "customer";
+	}
+	
+	@RequestMapping("/detail")
+	@ResponseBody
+	public Customer detail(Long id) throws Exception{
+		Customer customer = customerService.findCustomerById(id);
+		return customer;
+	}
+	
+	@RequestMapping("/update")
+	public String update(Customer customer) throws Exception{
+		customerService.updateCustomerById(customer);
 		return "customer";
 	}
 }

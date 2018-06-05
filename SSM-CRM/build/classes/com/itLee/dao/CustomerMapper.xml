@@ -42,6 +42,44 @@
 		
 	</select>
 	
+	<select id="findCustomerById" parameterType="long" resultType="com.itLee.pojo.Customer">
+		SELECT * FROM customer WHERE cust_id=#{id}
+	</select>
+	
+	<select id="updateCustomerById" parameterType="com.itLee.pojo.Customer" >
+		UPDATE customer 
+		<set>
+			<if test="cust_name != null and cust_name != '' ">
+				cust_name=#{cust_name} , 
+			</if>
+			<if test="cust_source != null and cust_source != '' ">
+				cust_source=#{cust_source} ,
+			</if>
+			<if test="cust_industry != null and cust_industry != '' ">
+				cust_industry=#{cust_industry} ,
+			</if>
+			<if test="cust_level != null and cust_level != '' ">
+				cust_level=#{cust_level} ,
+			</if>
+			<if test="cust_linkman != null and cust_linkman != '' ">
+				cust_linkman=#{cust_linkman} ,
+			</if>
+			<if test="cust_phone != null and cust_phone != '' ">
+				cust_phone=#{cust_phone} ,
+			</if>
+			<if test="cust_mobile != null and cust_mobile != '' ">
+				cust_mobile=#{cust_mobile} ,
+			</if>
+			<if test="cust_address != null and cust_address != '' ">
+				cust_address=#{cust_address} ,
+			</if>
+			<if test="cust_createtime != null and cust_createtime != '' ">
+				cust_createtime=#{cust_createtime}
+			</if>
+		</set>
+		where cust_id=#{cust_id}
+	</select>
+	
 </mapper>
 
 

@@ -27,16 +27,27 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override	
 	public List<Customer> findCustomerByVo(QueryVo vo) {
 		List<Customer> list = customerMapper.findCustomerByVo(vo);
-		System.out.println("进入service层<<=======================================");
 		return list;
 	}
 
 	@Override
 	public Integer findCustomerByVoCount(QueryVo vo) {
 		Integer count = customerMapper.findCustomerByVoCount(vo);
-		System.out.println("进入service层<<=======================================");
 		return count;
 	}
+
+	@Override
+	public Customer findCustomerById(Long id) {
+		Customer customer = customerMapper.findCustomerById(id);
+		return customer;
+	}
+
+	@Override
+	public void updateCustomerById(Customer customer) {
+		customerMapper.updateCustomerById(customer);
+	}
+	
+	
 
 }
 

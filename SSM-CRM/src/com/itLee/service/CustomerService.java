@@ -13,4 +13,8 @@ public interface CustomerService {
 	public List<Customer> findCustomerByVo(QueryVo vo);
 	
 	public Integer findCustomerByVoCount(QueryVo vo);
+	
+	public Customer findCustomerById(Long id);
+	
+	public void updateCustomerById(Customer customer);
 }
